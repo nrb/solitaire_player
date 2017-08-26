@@ -11,3 +11,10 @@ def test_finding_by_suit():
     hearts = deck.cards_by_suit('Hearts')
     assert len(hearts) == 13
     assert all([c for c in hearts if c.suit == 'Hearts'])
+
+
+def test_finding_by_face():
+    deck = Deck()
+    aces = deck.cards_by_face('A')
+    assert len(aces) == 4
+    assert all([c for c in aces if c.face == 'A'])
