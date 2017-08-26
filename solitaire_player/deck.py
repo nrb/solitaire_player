@@ -1,4 +1,5 @@
 from typing import List, NamedTuple
+import random
 
 Card = NamedTuple('Card', [('suit', str),
                            ('face', str),
@@ -51,3 +52,6 @@ class Deck():
 
     def cards_by_face(self, face) -> List[Card]:
         return list(filter(lambda x: x.face == face, self.cards))
+
+    def shuffle(self) -> None:
+        random.shuffle(self.cards)

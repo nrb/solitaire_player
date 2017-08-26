@@ -18,3 +18,12 @@ def test_finding_by_face():
     aces = deck.cards_by_face('A')
     assert len(aces) == 4
     assert all([c for c in aces if c.face == 'A'])
+
+
+def test_shuffle():
+    deck = Deck()
+    first_five = deck.cards[:5]
+    last_five = deck.cards[-5:]
+    deck.shuffle()
+    assert first_five != deck.cards[:5]
+    assert last_five != deck.cards[-5:]
