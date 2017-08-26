@@ -4,16 +4,17 @@ import random
 Card = NamedTuple('Card', [('suit', str),
                            ('face', str),
                            ('symbol', str),
+                           ('color', str),
                            ('value', int)
                            ])
 
 
 class Deck():
     def __init__(self):
-        self.suits = [('Hearts', '♥️'),
-                      ('Diamonds', '♦️'),
-                      ('Spades', '♠️'),
-                      ('Clubs', '♣️')]
+        self.suits = [('Hearts', '♥️', 'red'),
+                      ('Diamonds', '♦️', 'red'),
+                      ('Spades', '♠️', 'black'),
+                      ('Clubs', '♣️', 'black')]
 
         self.cards = self.build_deck()
 
@@ -41,9 +42,10 @@ class Deck():
             card_values.append((face, val))
 
         cards = []
-        for suit, symbol in self.suits:
+        for suit, symbol, color in self.suits:
             for face, val in card_values:
-                card = Card(suit=suit, face=face, symbol=symbol, value=val)
+                card = Card(suit=suit, face=face, symbol=symbol, color=color,
+                            value=val)
                 cards.append(card)
         return cards
 

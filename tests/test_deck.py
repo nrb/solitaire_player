@@ -61,5 +61,5 @@ def test_contains():
 def test_contains_fails():
     deck = Deck()
     # Even if there is a card with the same values, it's not the same object
-    card = Card(suit='Heart', face='A', symbol='♥️', value=13)
+    card = Card(suit='Heart', face='A', symbol='♥️', color='red', value=13)
     assert card not in deck
