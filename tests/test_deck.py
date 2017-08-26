@@ -31,8 +31,10 @@ def test_shuffle():
 
 def test_drawing_card():
     deck = Deck()
+    top = deck.cards[-1]
     card = deck.draw()
     assert card not in deck.cards
+    assert card is top
 
 
 def test_adding_card():
