@@ -45,3 +45,6 @@ class Deck():
                 card = Card(suit=suit, face=face, symbol=symbol, value=val)
                 cards.append(card)
         return cards
+
+    def cards_by_suit(self, suit) -> List[Card]:
+        return list(filter(lambda x: x.suit == suit, self.cards))
