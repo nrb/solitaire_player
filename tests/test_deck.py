@@ -37,6 +37,14 @@ def test_drawing_card():
     assert card is top
 
 
+def test_drawing_multiple_cards():
+    deck = Deck()
+    top_five = deck.cards[:5]
+    cards = deck.draw_multiple(5)
+    assert top_five == cards
+    assert len(deck.cards) == 47
+
+
 def test_adding_card():
     deck = Deck()
     card = deck.cards.pop()

@@ -66,6 +66,11 @@ class Deck():
         """
         return self.cards.pop()
 
+    def draw_multiple(self, num: int) -> List[Card]:
+        cards = self.cards[:num]
+        self.cards = self.cards[num:]
+        return cards
+
     def add(self, card: Card) -> None:
         """Places a card back on top of the deck"""
         self.cards.append(card)
