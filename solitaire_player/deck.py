@@ -47,13 +47,13 @@ class Deck():
                 cards.append(card)
         return cards
 
-    def __contains__(self, card) -> bool:
+    def __contains__(self, card: Card) -> bool:
         return card in self.cards
 
-    def cards_by_suit(self, suit) -> List[Card]:
+    def cards_by_suit(self, suit: str) -> List[Card]:
         return list(filter(lambda x: x.suit == suit, self.cards))
 
-    def cards_by_face(self, face) -> List[Card]:
+    def cards_by_face(self, face: str) -> List[Card]:
         return list(filter(lambda x: x.face == face, self.cards))
 
     def shuffle(self) -> None:
@@ -66,6 +66,6 @@ class Deck():
         """
         return self.cards.pop()
 
-    def add(self, card) -> None:
+    def add(self, card: Card) -> None:
         """Places a card back on top of the deck"""
         self.cards.append(card)
