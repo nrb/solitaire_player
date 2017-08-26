@@ -47,6 +47,9 @@ class Deck():
                 cards.append(card)
         return cards
 
+    def __contains__(self, card) -> bool:
+        return card in self.cards
+
     def cards_by_suit(self, suit) -> List[Card]:
         return list(filter(lambda x: x.suit == suit, self.cards))
 

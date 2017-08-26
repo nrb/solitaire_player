@@ -1,4 +1,4 @@
-from solitaire_player.deck import Deck
+from solitaire_player.deck import Card, Deck
 
 
 def test_creating_deck():
@@ -40,3 +40,16 @@ def test_adding_card():
     card = deck.cards.pop()
     deck.add(card)
     assert card in deck.cards
+
+
+def test_contains():
+    deck = Deck()
+    card = deck.cards[0]
+    assert card in deck
+
+
+def test_contains_fails():
+    deck = Deck()
+    # Even if there is a card with the same values, it's not the same object
+    card = Card(suit='Heart', face='A', symbol='♥️', value=13)
+    assert card not in deck
