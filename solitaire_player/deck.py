@@ -55,3 +55,14 @@ class Deck():
 
     def shuffle(self) -> None:
         random.shuffle(self.cards)
+
+    def draw(self) -> Card:
+        """Draws the card at the top of the deck
+
+        cards[51] is considered the top
+        """
+        return self.cards.pop()
+
+    def add(self, card) -> None:
+        """Places a card back on top of the deck"""
+        self.cards.append(card)

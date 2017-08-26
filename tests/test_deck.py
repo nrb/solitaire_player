@@ -27,3 +27,16 @@ def test_shuffle():
     deck.shuffle()
     assert first_five != deck.cards[:5]
     assert last_five != deck.cards[-5:]
+
+
+def test_drawing_card():
+    deck = Deck()
+    card = deck.draw()
+    assert card not in deck.cards
+
+
+def test_adding_card():
+    deck = Deck()
+    card = deck.cards.pop()
+    deck.add(card)
+    assert card in deck.cards
