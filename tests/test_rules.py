@@ -16,3 +16,35 @@ def test_invalid_move():
     dest_card = Card(suit='Spade', face='K', symbol='♠️',
                      color='black', value=12)
     assert not rules.is_valid(curr_card, dest_card)
+
+
+def test_invalid_foundation_move():
+    dest_card = Card(suit='Spade', face='K', symbol='♠️',
+                     color='black', value=12)
+    curr_card = Card(suit='Spade', face='Q', symbol='♠️',
+                     color='black', value=11)
+    assert not rules.is_valid_foundation(curr_card, dest_card)
+
+
+def test_valid_foundation_move():
+    curr_card = Card(suit='Spade', face='K', symbol='♠️',
+                     color='black', value=12)
+    dest_card = Card(suit='Spade', face='Q', symbol='♠️',
+                     color='black', value=11)
+    assert rules.is_valid_foundation(curr_card, dest_card)
+
+
+def test_two_to_ace_move():
+    curr_card = Card(suit='Spade', face='2', symbol='♠️',
+                     color='black', value=1)
+    dest_card = Card(suit='Spade', face='A', symbol='♠️',
+                     color='black', value=13)
+    assert rules.is_valid_foundation(curr_card, dest_card)
+
+
+def test_two_to_king_move():
+    curr_card = Card(suit='Spade', face='2', symbol='♠️',
+                     color='black', value=1)
+    dest_card = Card(suit='Spade', face='K', symbol='♠️',
+                     color='black', value=12)
+    assert not rules.is_valid_foundation(curr_card, dest_card)
