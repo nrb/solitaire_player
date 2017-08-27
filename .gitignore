@@ -1,3 +1,4 @@
-.tox
-.cache
-.mypy_cache
+.tox/
+.cache/
+.mypy_cache/
+solitaire_player.egg_info/
