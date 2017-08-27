@@ -2,3 +2,4 @@
 .cache/
 .mypy_cache/
 solitaire_player.egg-info/
+__pycache__/
