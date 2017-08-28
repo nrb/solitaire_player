@@ -76,3 +76,36 @@ class Deck():
     def add(self, card: Card) -> None:
         """Places a card back on top of the deck"""
         self.cards.append(card)
+
+    def __repr__(self) -> str:
+        return str(self.cards)
+
+    def __str__(self) -> str:
+        """Print the current state of the deck w/o colors"""
+        format_str = "{face}{symbol}"
+        out = []
+        for card in self.cards:
+            out.append(format_str.format(face=card.face, symbol=card.symbol))
+        return " ".join(out)
+
+    def color_print(self) -> str:
+        """Pretty-print the current state of the deck w/ terminal colors"""
+        color_map = {'red': '\033[31m',
+                     'black': '\033[30m'}
+        end = '\033[0m'
+        format_str = "{color}{face}{symbol}{end}"
+        out = []
+        for card in self.cards:
+            out.append(format_str.format(face=card.face, symbol=card.symbol,
+                                         color=color_map[card.color], end=end))
+        return " ".join(out)
+
+
+if __name__ == '__main__':
+    # Some quick checks for visuals
+    deck = Deck()
+    print(str(deck))
+    print(deck.color_print())
+    deck.shuffle()
+    print(str(deck))
+    print(deck.color_print())

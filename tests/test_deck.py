@@ -63,3 +63,17 @@ def test_contains_fails():
     # Even if there is a card with the same values, it's not the same object
     card = Card(suit='Heart', face='A', symbol='♥️', color='red', value=13)
     assert card not in deck
+
+
+def test_stringing():
+    deck = Deck()
+    result = str(deck)
+    assert result.startswith('2♥️')
+    assert result.endswith('A♣️')
+
+
+def test_color_printing():
+    deck = Deck()
+    result = deck.color_print()
+    assert result.startswith('\033[31m2♥️\033[0m ')
+    assert result.endswith('\033[30mA♣️\033[0m')
