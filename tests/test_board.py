@@ -1,5 +1,6 @@
 import pytest
 from solitaire_player.board import Board, Column
+from solitaire_player.deck import Card
 
 
 def test_board_has_all_pile_types():
@@ -24,6 +25,27 @@ def test_column_has_faceup_and_facedown():
 def test_column_has_len():
     c = Column()
     assert len(c) == 0
+
+
+def test_column_string_no_face_up():
+    c = Column()
+    assert str(c) == '0'
+
+
+def test_column_string_one_face_up():
+    c = Column()
+    card = Card(suit='Heart', face='A', symbol='♥️', color='red', value=13)
+    c.face_up.append(card)
+    assert str(c) == '0 A♥️'
+
+
+def test_column_string_two_face_up():
+    c = Column()
+    card = Card(suit='Heart', face='A', symbol='♥️', color='red', value=13)
+    c.face_up.append(card)
+    card = Card(suit='Heart', face='K', symbol='♥️', color='red', value=12)
+    c.face_up.append(card)
+    assert str(c) == '0 A♥️ K♥️'
 
 
 @pytest.mark.skip(reason="need to write some extra debugging methods")

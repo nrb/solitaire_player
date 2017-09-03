@@ -49,8 +49,15 @@ class Column:
         # Cards in the pile where faces are visible to the player.
         self.face_up = []
 
-    def __len__(self):
+    def __len__(self) -> int:
         return len(self.face_down) + len(self.face_up)
+
+    def __str__(self) -> str:
+        out = []
+        for card in self.face_up:
+            out.append(str(card))
+        out.insert(0, str(len(self.face_down)))
+        return " ".join(out)
 
 
 class TableauPile:
@@ -65,3 +72,5 @@ if __name__ == '__main__':
     logging.basicConfig(level=logging.DEBUG)
     board = Board()
     board.deal()
+    for column in board.tableau:
+        print(str(column))
