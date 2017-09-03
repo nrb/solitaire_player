@@ -1,0 +1,5 @@
+* Update Card type to be able to display itself; this will be necessary with the Columns on the board.
+* Build Columns datatype, with 2 child lists - face_up, face_down
+* Build Foundation datatype, which will be tied to a suit
+* Build Board datatype to hold the tableau and foundation
+* Build 'dealing' function that distributes the deck amongst the Columns on the tableau
