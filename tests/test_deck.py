@@ -65,14 +65,26 @@ def test_contains_fails():
     assert card not in deck
 
 
-def test_stringing():
+def test_card_stringing():
+    card = Card(suit='Heart', face='A', symbol='♥️', color='red', value=13)
+    result = str(card)
+    assert result == 'A♥️'
+
+
+def test_card_color_print():
+    card = Card(suit='Heart', face='A', symbol='♥️', color='red', value=13)
+    result = card.color_print()
+    assert result == '\033[31mA♥️\033[0m'
+
+
+def test_deck_stringing():
     deck = Deck()
     result = str(deck)
     assert result.startswith('2♥️')
     assert result.endswith('A♣️')
 
 
-def test_color_printing():
+def test_deck_color_printing():
     deck = Deck()
     result = deck.color_print()
     assert result.startswith('\033[31m2♥️\033[0m ')

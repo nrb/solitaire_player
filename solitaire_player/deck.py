@@ -1,12 +1,26 @@
 from typing import List, NamedTuple
 import random
 
-Card = NamedTuple('Card', [('suit', str),
-                           ('face', str),
-                           ('symbol', str),
-                           ('color', str),
-                           ('value', int)
-                           ])
+BaseCard = NamedTuple('Card', [('suit', str),
+                               ('face', str),
+                               ('symbol', str),
+                               ('color', str),
+                               ('value', int)
+                               ])
+
+
+class Card(BaseCard):
+    def __str__(self):
+        format_str = "{face}{symbol}"
+        return format_str.format(face=self.face, symbol=self.symbol)
+
+    def color_print(self):
+        color_map = {'red': '\033[31m',
+                     'black': '\033[30m'}
+        end = '\033[0m'
+        format_str = "{color}{face}{symbol}{end}"
+        return format_str.format(face=self.face, symbol=self.symbol,
+                                 color=color_map[self.color], end=end)
 
 
 class Deck():
@@ -82,22 +96,16 @@ class Deck():
 
     def __str__(self) -> str:
         """Print the current state of the deck w/o colors"""
-        format_str = "{face}{symbol}"
         out = []
         for card in self.cards:
-            out.append(format_str.format(face=card.face, symbol=card.symbol))
+            out.append(str(card))
         return " ".join(out)
 
     def color_print(self) -> str:
         """Pretty-print the current state of the deck w/ terminal colors"""
-        color_map = {'red': '\033[31m',
-                     'black': '\033[30m'}
-        end = '\033[0m'
-        format_str = "{color}{face}{symbol}{end}"
         out = []
         for card in self.cards:
-            out.append(format_str.format(face=card.face, symbol=card.symbol,
-                                         color=color_map[card.color], end=end))
+            out.append(card.color_print())
         return " ".join(out)
 
 
