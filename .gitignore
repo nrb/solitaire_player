@@ -3,3 +3,5 @@
 .mypy_cache/
 solitaire_player.egg-info/
 __pycache__/
+dist/
+build/
