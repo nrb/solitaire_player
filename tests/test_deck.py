@@ -65,6 +65,10 @@ def test_contains_fails():
     assert card not in deck
 
 
+def test_deck_len():
+    assert len(Deck()) == 52
+
+
 def test_card_stringing():
     card = Card(suit='Heart', face='A', symbol='♥️', color='red', value=13)
     result = str(card)

@@ -66,6 +66,9 @@ class Deck():
     def __contains__(self, card: Card) -> bool:
         return card in self.cards
 
+    def __len__(self) -> int:
+        return len(self.cards)
+
     def cards_by_suit(self, suit: str) -> List[Card]:
         return list(filter(lambda x: x.suit == suit, self.cards))
 
