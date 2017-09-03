@@ -1,4 +1,3 @@
-import pytest
 from solitaire_player.board import Board, Column
 from solitaire_player.deck import Card
 
@@ -48,7 +47,6 @@ def test_column_string_two_face_up():
     assert str(c) == '0 A♥️ K♥️'
 
 
-@pytest.mark.skip(reason="need to write some extra debugging methods")
 def test_dealing_from_deck():
     board = Board()
     board.deal()

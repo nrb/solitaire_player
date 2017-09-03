@@ -29,15 +29,14 @@ class Board:
             logging.debug("Placed card {} on column {}, face up".format(
                 card, loop))
 
-            if loop < len(self.tableau)-1:
-                # Remaining columns get their cards added face down
-                remaining = self.tableau[loop:]
-                for index, column in enumerate(remaining):
-                    card = self.deck.draw()
-                    column.face_down.append(card)
-                    cards_placed += 1
-                    logging.debug("Placed card %s on column %s, face down",
-                                  card, loop+(6-index))
+            # Remaining columns get their cards added face down
+            remaining = self.tableau[loop + 1:]
+            for index, column in enumerate(remaining):
+                card = self.deck.draw()
+                column.face_down.append(card)
+                cards_placed += 1
+                logging.debug("Placed card %s on column %s, face down",
+                              card, loop+(6-index))
             logging.debug('%s cards placed this loop', cards_placed)
             loop += 1
 
