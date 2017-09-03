@@ -36,7 +36,7 @@ class Board:
                 column.face_down.append(card)
                 cards_placed += 1
                 logging.debug("Placed card %s on column %s, face down",
-                              card, loop+(6-index))
+                              card, (loop + 1 + index))
             logging.debug('%s cards placed this loop', cards_placed)
             loop += 1
 
