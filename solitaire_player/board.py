@@ -17,6 +17,7 @@ class Board:
             self.foundation.append(FoundationPile())
 
     def deal(self) -> None:
+        # TODO: Shuffle before dealing
         loop = 0
         # While the deck has > 28 cards, deal them to the columns
         while loop < 7:
